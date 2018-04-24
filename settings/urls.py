@@ -21,5 +21,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     # Example App 1 Views.
-    url(r'^ex1/', include('example_app_1.urls'))
+    url(r'^ex1/', include('example_app_1.urls')),
+
+    # Example App 2 Views.
+    url(r'^ex2/', include('example_app_2.urls')),
 ]
