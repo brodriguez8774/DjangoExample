@@ -37,7 +37,7 @@ class ViewTests(TestCase):
 
     def test_category_detail(self):
         response = self.client.get(reverse('example_app_2:category_detail', kwargs={
-            'category_id': self.category.id
+            'pk': self.category.id
         }))
         self.assertEqual(response.status_code, 200)
 
@@ -48,7 +48,7 @@ class ViewTests(TestCase):
 
     def test_category_edit(self):
         response = self.client.get(reverse('example_app_2:category_edit', kwargs={
-            'category_id': self.category.id
+            'pk': self.category.id
         }))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('form' in response.context)
