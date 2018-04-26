@@ -28,4 +28,7 @@ urlpatterns = [
 
     # Example App 3 Views.
     url(r'^ex3/', include('example_app_3.urls')),
+
+    # Example App 4 Views.
+    url(r'^ex4/', include('example_app_4.urls')),
 ]
