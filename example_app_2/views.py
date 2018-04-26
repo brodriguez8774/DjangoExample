@@ -2,14 +2,16 @@
 Views for Example App 2.
 """
 
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+
 from django.views import generic
 
 from . import forms, models
 
+
 class IndexView(generic.ListView):
+    """
+    Index view. Displays all current category models.
+    """
     template_name = 'example_app_2/index.html'
 
     def get_queryset(self):
@@ -20,18 +22,26 @@ class IndexView(generic.ListView):
 
 
 class DetailView(generic.DetailView):
+    """
+    Displays details of the given category.
+    """
     model = models.Category
     template_name = 'example_app_2/category_detail.html'
 
 
 class CategoryCreate(generic.edit.CreateView):
+    """
+    Form view for creating a new Category.
+    """
     model = models.Category
     form_class = forms.CategoryForm
     template_name = "example_app_2/forms/category.html"
 
 
-
 class CategoryUpdate(generic.edit.UpdateView):
+    """
+    Form view for editing a Category.
+    """
     model = models.Category
     form_class = forms.CategoryForm
     template_name = "example_app_2/forms/category.html"

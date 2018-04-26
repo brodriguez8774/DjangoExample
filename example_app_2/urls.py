@@ -2,9 +2,11 @@
 Urls for Example App 2.
 """
 
+
 from django.conf.urls import url
 
 from . import views
+
 
 app_name = 'example_app_2'
 urlpatterns = [

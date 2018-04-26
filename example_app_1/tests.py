@@ -2,6 +2,7 @@
 Tests for Example App 1.
 """
 
+
 from django.test import TestCase
 from django.urls import reverse
 

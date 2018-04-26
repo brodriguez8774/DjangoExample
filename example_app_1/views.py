@@ -2,6 +2,7 @@
 Views for Example App 1.
 """
 
+
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -59,7 +60,7 @@ def category_edit(request, category_id):
     """
     Form view for editing a Category.
     """
-    # Pullmodels from database.
+    # Pull models from database.
     category = get_object_or_404(models.Category, id=category_id)
     form = forms.CategoryForm(instance=category)
 
@@ -77,4 +78,3 @@ def category_edit(request, category_id):
         'form': form,
         'category': category,
     })
-

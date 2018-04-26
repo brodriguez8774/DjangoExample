@@ -2,6 +2,7 @@
 Forms for Example App 3.
 """
 
+
 from django import forms
 
 from . import models
@@ -53,7 +54,7 @@ class CustomerAdminForm(forms.ModelForm):
 
 
 
-#region Address Form Views
+#region Standard Form Views
 
 class AddressForm(forms.ModelForm):
     """
@@ -78,5 +79,4 @@ class CustomerForm(forms.ModelForm):
             'last_name',
         }
 
-
-#endregion Address Form Views
+#endregion Standard Form Views

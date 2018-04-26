@@ -172,16 +172,3 @@ def customer_edit(request, customer_id):
     })
 
 #endregion Edit Views
-
-
-
-
-
-
-
-
-
-
-
-
-#endregion Customer Views
