@@ -2,7 +2,6 @@
 Tests for Example App 4.
 """
 
-
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 

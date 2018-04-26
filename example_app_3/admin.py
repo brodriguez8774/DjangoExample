@@ -2,7 +2,6 @@
 Admin views for Example App 3.
 """
 
-
 from django.contrib import admin
 
 from . import forms, models

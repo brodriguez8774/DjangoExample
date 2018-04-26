@@ -2,7 +2,6 @@
 Views for Example App 1.
 """
 
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse

@@ -2,7 +2,6 @@
 Forms for Example App 1.
 """
 
-
 from django import forms
 
 from . import models

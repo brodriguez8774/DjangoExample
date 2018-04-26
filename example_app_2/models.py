@@ -2,7 +2,6 @@
 Models for Example_App_2.
 """
 
-
 from django.db import models
 from django.urls import reverse
 

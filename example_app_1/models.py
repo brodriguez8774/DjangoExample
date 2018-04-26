@@ -2,7 +2,6 @@
 Models for Example_App_1.
 """
 
-
 from django.db import models
 
 

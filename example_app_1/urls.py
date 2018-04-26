@@ -2,7 +2,6 @@
 Urls for Example App 1.
 """
 
-
 from django.conf.urls import url
 
 from . import views

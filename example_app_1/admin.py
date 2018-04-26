@@ -2,7 +2,6 @@
 Admin View for Example App 1.
 """
 
-
 from django.contrib import admin
 
 from . import models

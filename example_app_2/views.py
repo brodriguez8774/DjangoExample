@@ -2,7 +2,6 @@
 Views for Example App 2.
 """
 
-
 from django.views import generic
 
 from . import forms, models
