@@ -1,0 +1,15 @@
+{% extends 'example_app_3/address_base.html' %}
+
+
+{% block sub_title %}Overview{% endblock sub_title %}
+
+
+{% block content %}
+  <p><a href="{% url 'example_app_3:address_create' %}">New</a></p>
+
+  {% for address in address_list %}
+    <li>
+      <a href="{% url 'example_app_3:address_detail' address_id=address.id %}">{{ address.address }}</a>
+    </li>
+  {% endfor %}
+{% endblock content %}

@@ -4,6 +4,7 @@ Tests for Example App 3.
 
 
 from django.test import TestCase
+from django.urls import reverse
 
 from . import models
 
@@ -62,6 +63,69 @@ class CustomerModelTests(TestCase):
 
 #region View Tests
 
+class AddressViewTests(TestCase):
+    """
+    Tests to ensure valid Example App 3 views.
+    """
+    @classmethod
+    def setUpTestData(cls):
+        cls.address = models.Address.objects.create(address='1234 Test Address')
 
+    def test_index(self):
+        response = self.client.get(reverse('example_app_3:index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_address_overview(self):
+        response = self.client.get(reverse('example_app_3:address_overview'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_address_detail(self):
+        response = self.client.get(reverse('example_app_3:address_detail', kwargs={
+            'address_id': self.address.id
+        }))
+        self.assertEqual(response.status_code, 200)
+
+    def test_address_create(self):
+        response = self.client.get(reverse('example_app_3:address_create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('form' in response.context)
+
+    def test_address_edit(self):
+        response = self.client.get(reverse('example_app_3:address_edit', kwargs={
+            'address_id': self.address.id
+        }))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('form' in response.context)
+
+
+class CustomerViewTests(TestCase):
+    """
+    Tests to ensure valid Example App 3 views.
+    """
+    @classmethod
+    def setUpTestData(cls):
+        cls.customer = models.Customer.objects.create(first_name='Test First', last_name='Test Last')
+
+    def test_index(self):
+        response = self.client.get(reverse('example_app_3:index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_customer_detail(self):
+        response = self.client.get(reverse('example_app_3:customer_detail', kwargs={
+            'customer_id': self.customer.id
+        }))
+        self.assertEqual(response.status_code, 200)
+
+    def test_customer_create(self):
+        response = self.client.get(reverse('example_app_3:customer_create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('form' in response.context)
+
+    def test_customer_edit(self):
+        response = self.client.get(reverse('example_app_3:customer_edit', kwargs={
+            'customer_id': self.customer.id
+        }))
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue('form' in response.context)
 
 #endregion View Tests

@@ -1,0 +1,17 @@
+{% extends 'example_app_3/customer_base.html' %}
+
+
+{% block sub_title %}Detail{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Customer Detail</h1>
+
+  <p>First Name: {{ customer.first_name }}</p>
+  <p>Last Name: {{ customer.last_name }}</p>
+  <p>Address: {{ customer.address }}</p>
+  <p>Created At: {{ customer.date_created }}</p>
+  <p>Last Updated: {{ customer.date_modified }}</p>
+
+  <p><a href="{% url 'example_app_3:customer_edit' customer_id=customer.id %}">Edit</a></p>
+{% endblock content %}

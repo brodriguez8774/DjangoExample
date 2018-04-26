@@ -1,0 +1,15 @@
+{% extends 'example_app_3/address_base.html' %}
+
+
+{% block sub_title %}Detail{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Address Detail</h1>
+
+  <p>Address: {{ address.address }}</p>
+  <p>Created At: {{ address.date_created }}</p>
+  <p>Last Updated: {{ address.date_modified }}</p>
+
+  <p><a href="{% url 'example_app_3:address_edit' address_id=address.id %}">Edit</a></p>
+{% endblock content %}
