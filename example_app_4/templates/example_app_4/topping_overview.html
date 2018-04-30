@@ -1,0 +1,16 @@
+{% extends 'example_app_4/topping_base.html' %}
+
+
+{% block sub_title %}Overview{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Toppings</h1>
+  <p><a href="{% url 'example_app_4:topping_create' %}">New</a></p>
+
+  {% for topping in topping_list %}
+    <li>
+      <a href="{% url 'example_app_4:topping_detail' topping_id=topping.id %}">{{ topping.name }}</a>
+    </li>
+  {% endfor %}
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'example_app_4/pizza_base.html' %}
+
+
+{% block sub_title %}Form{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Pizza Form</h1>
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+{% endblock content %}

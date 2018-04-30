@@ -11,7 +11,7 @@ views as well.
 * /ex1/ - Standard urls for Example App 1.
 * /ex2/ - Standard urls for Example App 2.
 * /ex3/ - Standard urls for Example App 3.
-* /ex4/ - Standard urls for Example App 4 (currently none).
+* /ex4/ - Standard urls for Example App 4.
 
 
 ## App Descriptions:
@@ -34,5 +34,4 @@ views as well.
 
 * Example App 4:
     * Even more advanced, showing how to create models with a Many-to-Many relation.
-    * Again, the admin views are customized.
-    * Does not implement any front end other than the admin views, as it would not be much different than in App 3.
+    * Again, the admin views are customized and front end uses basic templating.

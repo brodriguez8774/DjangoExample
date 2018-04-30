@@ -28,8 +28,8 @@ class PizzaAdminForm(forms.ModelForm):
         model = models.Pizza
         fields = {
             'name',
-            'toppings',
             'price',
+            'toppings',
         }
 
 #endregion Admin Form Views
@@ -52,12 +52,16 @@ class PizzaForm(forms.ModelForm):
     """
     Define admin form view for Pizza model.
     """
+    def __init__(self, *args, **kwargs):
+        super(PizzaForm, self).__init__(*args, **kwargs)
+        self.fields['toppings'].widget = forms.widgets.CheckboxSelectMultiple()
+        self.fields['toppings'].queryset = models.Topping.objects.all()
+
     class Meta:
         model = models.Pizza
         fields = {
             'name',
             'toppings',
-            'price',
         }
 
 #endregion Standard Form Views

@@ -7,11 +7,11 @@ from django.contrib import admin
 from . import forms, models
 
 
-class PizzaToppingRelationshipInline(admin.TabularInline):
+class ToppingInline(admin.TabularInline):
     """
     An inline to represent the Many-to-Many relationship. Will be used in the Pizza model admin.
     """
-    model = models.PizzaToppingRelationship
+    model = models.Pizza.toppings.through
     extra = 1
 
 
@@ -47,7 +47,7 @@ class ToppingAdmin(admin.ModelAdmin):
 
 class PizzaAdmin(admin.ModelAdmin):
     form = forms.PizzaAdminForm
-    inlines = (PizzaToppingRelationshipInline,)
+    inlines = (ToppingInline,)
 
     # Fields to display in admin list view.
     list_display = (
@@ -59,7 +59,6 @@ class PizzaAdmin(admin.ModelAdmin):
     search_fields = [
         'name',
         'price',
-        'toppings__name',
     ]
 
     # Read only fields for admin detail view.

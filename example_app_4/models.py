@@ -8,36 +8,6 @@ from django.db import models
 MAX_LENGTH = 200
 
 
-class PizzaToppingRelationship(models.Model):
-    """
-    The Many-to-Many intermediary between a Pizza and a Topping.
-
-    Note that you can avoid defining the "through"field in the Pizza model, and Django will auto-create this for you.
-    However, when Django auto-creates the intermediary table, you cannot add custom fields, such as "extra" seen here.
-    But Django's auto-created table does let you use add(), create(), set(), and remove().
-    """
-    # Relationship keys.
-    pizza = models.ForeignKey('Pizza', on_delete=models.CASCADE)
-    topping = models.ForeignKey('Topping', on_delete=models.CASCADE)
-    # Additional Many-to-Many fields.
-    extra = models.BooleanField(default=False)
-    # Self-setting/Non-user-editable fields.
-    date_created = models.DateTimeField(auto_now_add=True)
-    date_modified = models.DateTimeField(auto_now=True)
-
-    def save(self, *args, **kwargs):
-        """
-        Modify model save behavior.
-        """
-        # Save model.
-        self.full_clean()
-        super(PizzaToppingRelationship, self).save(*args, **kwargs)
-
-        # Update related pizza price via saving related model.
-        related_pizza = self.pizza
-        related_pizza.save()
-
-
 class Topping(models.Model):
     """
     A pizza topping model.
@@ -74,7 +44,7 @@ class Pizza(models.Model):
     A pizza model.
     """
     # Relational fields.
-    toppings = models.ManyToManyField('Topping', through='PizzaToppingRelationship')
+    toppings = models.ManyToManyField('Topping', blank=True)
     # Model fields.
     name = models.CharField(max_length=MAX_LENGTH, default='Custom')
     # Self-setting/Non-user-editable fields.
@@ -116,12 +86,9 @@ class Pizza(models.Model):
         if self.pk is not None:
             self.price = 8
             # Grab the full Many-to-Many relationship model so we can access the additional fields.
-            toppings_on_pizza = PizzaToppingRelationship.objects.filter(pizza=self)
+            toppings_on_pizza = self.toppings.all()
             # Iterate through the returned queryset. Each one is a single topping for this pizza.
             for relationship in toppings_on_pizza:
-                if relationship.extra:
-                    self.price += 1.75
-                else:
-                    self.price += 1.25
+                self.price += 1.25
         else:
             self.price = 8
