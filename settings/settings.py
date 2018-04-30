@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'example_app_2.apps.ExampleApp2Config',
     'example_app_3.apps.ExampleApp3Config',
     'example_app_4.apps.ExampleApp4Config',
+    'example_app_5.apps.ExampleApp5Config',
 ]
 
 MIDDLEWARE = [

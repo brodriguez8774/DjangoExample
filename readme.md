@@ -35,3 +35,8 @@ views as well.
 * Example App 4:
     * Even more advanced, showing how to create models with a Many-to-Many relation.
     * Again, the admin views are customized and front end uses basic templating.
+
+
+* Example App 5:
+    * A variation on Example App 4. Uses a custom intermediary field for the Many-to-Many relation.
+    * Otherwise identical to Example App 4.

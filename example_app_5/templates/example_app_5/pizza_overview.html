@@ -1,0 +1,16 @@
+{% extends 'example_app_5/pizza_base.html' %}
+
+
+{% block sub_title %}Overview{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Pizzas</h1>
+  <p><a href="{% url 'example_app_5:pizza_create' %}">New</a></p>
+
+  {% for pizza in pizza_list %}
+    <li>
+      <a href="{% url 'example_app_5:pizza_detail' pizza_id=pizza.id %}">{{ pizza.name }}</a>
+    </li>
+  {% endfor %}
+{% endblock content %}

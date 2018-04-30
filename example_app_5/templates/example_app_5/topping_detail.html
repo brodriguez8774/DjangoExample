@@ -1,0 +1,15 @@
+{% extends 'example_app_5/topping_base.html' %}
+
+
+{% block sub_title %}Detail{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Topping Detail</h1>
+
+  <p>Name: {{ topping.name }}</p>
+  <p>Created At: {{ topping.date_created }}</p>
+  <p>Last Updated: {{ topping.date_modified }}</p>
+
+  <p><a href="{% url 'example_app_5:topping_edit' topping_id=topping.id %}">Edit</a></p>
+{% endblock content %}

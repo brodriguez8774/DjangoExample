@@ -1,0 +1,21 @@
+{% extends 'example_app_5/pizza_base.html' %}
+
+
+{% block sub_title %}Detail{% endblock sub_title %}
+
+
+{% block content %}
+  <h1>Pizza Detail</h1>
+
+  <p>Name: {{ pizza.name }}</p>
+  <p>Price: {{ pizza.price }}</p>
+  <p>Toppings:
+    {% for topping in topping_set %}
+      {{ topping.name }},
+    {% endfor %}
+  </p>
+  <p>Created At: {{ pizza.date_created }}</p>
+  <p>Last Updated: {{ pizza.date_modified }}</p>
+
+  <p><a href="{% url 'example_app_5:pizza_edit' pizza_id=pizza.id %}">Edit</a></p>
+{% endblock content %}
