@@ -44,6 +44,9 @@ class PizzaModelTests(TestCase):
     def setUp(self):
         self.test_pizza = models.Pizza.objects.create(name='Test Pizza')
         self.test_pizza.toppings.add(self.topping)
+        # These are just standard model queries using the above Many-to-Many relationship.
+        # First, we get all toppings on the indicated pizza, which should just be "Test Topping" in this instance.
+        # Then, we get all pizzas which use the indicated topping, which should just be "Test Pizza".
         self.toppings_on_pizza = self.test_pizza.toppings.all()
         self.pizzas_with_topping = self.topping.pizza_set.all() # This is the reverse query, hence the "_set".
         self.test_pizza.save()  # Note that we must save the pizza after toppings to automatically update it's pricing.
