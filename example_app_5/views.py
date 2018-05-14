@@ -80,6 +80,8 @@ def topping_create(request):
     """
     Form view for creating a new Topping.
     """
+    form = forms.ToppingForm()
+
     # Check if request is post.
     if request.method == 'POST':
         form = forms.ToppingForm(request.POST)
@@ -90,7 +92,6 @@ def topping_create(request):
             return HttpResponseRedirect(reverse('example_app_5:topping_detail', args=(topping.id, )))
 
     # Handle for non-post request.
-    form = forms.ToppingForm()
     return render(request, 'example_app_5/forms/topping.html', {
         'form': form,
     })
@@ -101,6 +102,8 @@ def pizza_create(request):
     Form view for creating a new Pizza.
     TODO: ManyToMany intermediary saving seems a bit messy. Probably a better way.
     """
+    form = forms.PizzaForm()
+
     # Check if request is post.
     if request.method == 'POST':
         form = forms.PizzaForm(request.POST)
@@ -125,7 +128,6 @@ def pizza_create(request):
             return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.id, )))
 
     # Handle for non-post request.
-    form = forms.PizzaForm()
     return render(request, 'example_app_5/forms/pizza.html', {
         'form': form,
     })

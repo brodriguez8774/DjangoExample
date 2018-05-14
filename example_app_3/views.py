@@ -83,6 +83,8 @@ def address_create(request):
     """
     Form view for creating a new Address.
     """
+    form = forms.AddressForm()
+
     # Check if request is post.
     if request.method == 'POST':
         form = forms.AddressForm(request.POST)
@@ -93,7 +95,6 @@ def address_create(request):
             return HttpResponseRedirect(reverse('example_app_3:address_detail', args=(address.id, )))
 
     # Handle for non-post request.
-    form = forms.AddressForm()
     return render(request, 'example_app_3/forms/address.html', {
         'form': form,
     })
@@ -103,6 +104,8 @@ def customer_create(request):
     """
     Form view for creating a new Customer.
     """
+    form = forms.CustomerForm()
+
     # Check if request is post.
     if request.method == 'POST':
         form = forms.CustomerForm(request.POST)
@@ -113,7 +116,6 @@ def customer_create(request):
             return HttpResponseRedirect(reverse('example_app_3:customer_detail', args=(customer.id, )))
 
     # Handle for non-post request.
-    form = forms.CustomerForm()
     return render(request, 'example_app_3/forms/customer.html', {
         'form': form,
     })

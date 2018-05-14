@@ -39,6 +39,9 @@ def category_create(request):
     """
     Form view for creating a new Category.
     """
+    # Note that a blank form is loaded before everything else.
+    # This ensures that, on a POST error, all data is returned to user on page load.
+    form = forms.CategoryForm()
     # Check if request is post.
     if request.method == 'POST':
         form = forms.CategoryForm(request.POST)
@@ -49,7 +52,6 @@ def category_create(request):
             return HttpResponseRedirect(reverse('example_app_1:category_detail', args=(category.id, )))
 
     # Handle for non-post request.
-    form = forms.CategoryForm()
     return render(request, 'example_app_1/forms/category.html', {
         'form': form,
     })
