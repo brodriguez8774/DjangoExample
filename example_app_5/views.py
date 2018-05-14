@@ -114,9 +114,6 @@ def pizza_create(request):
             pizza = form.save(commit=False)
             pizza.save()
 
-            print('request.POST: {0}'.format(request.POST))
-            print('.getlist: {0}'.format(request.POST.getlist('toppings')))
-
             for topping_id in request.POST.getlist('toppings'):
                 topping = get_object_or_404(models.Topping, id=topping_id)
                 models.PizzaToppingRelationship.objects.create(
@@ -182,9 +179,6 @@ def pizza_edit(request, pizza_id):
 
             # Clear old topping values.
             new_pizza.toppings.clear()
-
-            print('request.POST: {0}'.format(request.POST))
-            print('.getlist: {0}'.format(request.POST.getlist('toppings')))
 
             for topping_id in request.POST.getlist('toppings'):
                 topping = get_object_or_404(models.Topping, id=topping_id)
