@@ -6,12 +6,14 @@
 A very basic Django project, to show how the general framework functions.
 
 Note that the base project url will give a 404, and then list all possible valid urls, which are as follows:
-* /admin/ - These are the "admin" views that Django automatically generates. Apps 3 and 4 have customized these
-views as well.
+* /admin/ - These are the "admin" views that Django automatically generates. Apps 3, 4 and 5 have customized these
+views as well. App 6 does not have models and thus has no associated admin views.
 * /ex1/ - Standard urls for Example App 1.
 * /ex2/ - Standard urls for Example App 2.
 * /ex3/ - Standard urls for Example App 3.
 * /ex4/ - Standard urls for Example App 4.
+* /ex5/ - Standard urls for Example App 5.
+* /ex6/ - Standard urls for Example App 6.
 
 
 ## App Descriptions:
@@ -40,3 +42,9 @@ views as well.
 * Example App 5:
     * A variation on Example App 4. Uses a custom intermediary field for the Many-to-Many relation.
     * Otherwise identical to Example App 4.
+    
+    
+* Example App 6:
+    * An example of using an Ajax request. The Ajax itself generates and sends a random number.
+    * On load, the page immediately sends a single Ajax request. The user can also click the button to send more.
+    * Page updates dynamically (aka without reloading the entire page from scrach).

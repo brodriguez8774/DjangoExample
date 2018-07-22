@@ -1,0 +1,37 @@
+
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+
+  {% block head %}
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      {% block title %}{% endblock title %}
+
+      {% block fonts %}{% endblock fonts %}
+
+      {% block styles %}{% endblock styles %}
+
+      {% block base_scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      {% endblock base_scripts %}
+    </head>
+  {% endblock head %}
+
+  {% block body %}
+    <body>
+      {% block header %}{% endblock header %}
+
+      <main>{% block content %}{% endblock content %}</main>
+
+      {% block footer %}{% endblock footer %}
+
+      {% block extra_scripts %}
+        <script src="{% static 'example_app_6/js/ajax_example.js' %}"></script>
+      {% endblock extra_scripts %}
+    </body>
+  {% endblock body %}
+
+</html>
