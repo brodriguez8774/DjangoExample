@@ -1,7 +1,12 @@
-<h1>{{ category.title }}'s Category Detail</h1>
+{% extends 'example_app_1/base.html' %}
 
-<p>Title: {{ category.title }}</p>
-<p>Created At: {{ category.date_created }}</p>
-<p>Last Updated: {{ category.date_created }}</p>
 
-<p><a href="{% url 'example_app_1:category_edit' category_id=category.id %}">Edit</a></p>
+{% block content %}
+  <h1>{{ category.title }}'s Category Detail</h1>
+
+  <p>Title: {{ category.title }}</p>
+  <p>Created At: {{ category.date_created }}</p>
+  <p>Last Updated: {{ category.date_created }}</p>
+
+  <p><a href="{% url 'example_app_1:category_edit' category_id=category.id %}">Edit</a></p>
+{% endblock content %}

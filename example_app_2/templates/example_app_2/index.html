@@ -1,9 +1,14 @@
-<h1>Example App 2 Index</h1>
+{% extends 'example_app_2/base.html' %}
 
-<p><a href="{% url 'example_app_2:category_create' %}">New</a></p>
 
-{% for category in category_list %}
-  <li>
-    <a href="{% url 'example_app_2:category_detail' pk=category.id %}">{{ category.title }}</a>
-  </li>
-{% endfor %}
+{% block content %}
+  <h1>Example App 2 Index</h1>
+
+  <p><a href="{% url 'example_app_2:category_create' %}">New</a></p>
+
+  {% for category in category_list %}
+    <li>
+      <a href="{% url 'example_app_2:category_detail' pk=category.id %}">{{ category.title }}</a>
+    </li>
+  {% endfor %}
+{% endblock content %}

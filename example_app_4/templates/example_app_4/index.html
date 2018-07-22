@@ -1,4 +1,12 @@
-<h1>Example App 4 Index</h1>
+{% extends 'example_app_4/base.html' %}
 
-<p><a href="{% url 'example_app_4:topping_overview' %}">Toppings</a></p>
-<p><a href="{% url 'example_app_4:pizza_overview' %}">Pizzas</a></p>
+
+{% block title%}<title>Example App 4 Index</title>{% endblock title %}
+
+
+{% block content %}
+  <h1>Example App 4 Index</h1>
+
+  <p><a href="{% url 'example_app_4:topping_overview' %}">Toppings</a></p>
+  <p><a href="{% url 'example_app_4:pizza_overview' %}">Pizzas</a></p>
+{% endblock content %}
