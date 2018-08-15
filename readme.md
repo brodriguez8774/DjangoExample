@@ -47,4 +47,42 @@ views as well. App 6 does not have models and thus has no associated admin views
 * Example App 6:
     * An example of using an Ajax request. The Ajax itself generates and sends a random number.
     * On load, the page immediately sends a single Ajax request. The user can also click the button to send more.
-    * Page updates dynamically (aka without reloading the entire page from scrach).
+    * Page updates dynamically (aka without reloading the entire page from scratch).
+
+
+* Example App 7:
+    * An example of adding React (a JavaScript extension) on top of Django templating. See below for more info on React.
+    
+    
+## React Notes
+
+Unfortunately, React seems to prefer a syntax that browsers do not fully understand, out of the gate. To correct for
+this, you will need to install "npm", and then use "browserify" to compile the code into a browser-friendly format.
+
+(It's actually similar to how sass files compile into standard css. You write code that's easier to handle and far more
+human-friendly. Then you use the console to run a compiler, changing the code into a format the browser understands.)
+
+### Installing NPM
+
+Npm is "the world's largest software registry" and what most front end libraries now seem to install through.
+
+Npm now installs as part of NodeJS. The simplest way to install is to visit:
+* https://nodejs.org/
+
+### Installing Browserify for React
+
+Browserify is a package which "transforms" files into browser-friendly formats.
+
+Setting up Browserify for React is a two step process, and requires npm to be installed first.
+
+* First, install Browserify globally via:
+    * ```npm install browserify -g```
+* Second, change to the project's root directory and install "other required npm packages":
+    * ```npm install babel-cli babel-preset-env babel-preset-react babelify```
+
+### Compiling React Files through Browserify
+
+From the project's root directory, run:
+* ```browserify -t [ babelify --presets [env react] ] <sourceFile> -o <destinationFile>```
+    * Where \<sourceFile> is the original react file.
+    * And \<destinationFile> is where the browser-friendly file is compiled to.
