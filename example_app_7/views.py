@@ -1,3 +1,14 @@
+"""
+Views for example app 7.
+"""
+
+
 from django.shortcuts import render
 
-# Create your views here.
+
+def index(request):
+    """
+    Index view.
+    """
+    # Send to template for user display.
+    return render(request, 'example_app_7/index.html')

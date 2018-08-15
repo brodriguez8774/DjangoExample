@@ -1,0 +1,31 @@
+
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Django Example App 7</h1>
+      <p>This app shows rendering of a Django template with React.</p>
+      <p>The React javascript file can be found within the "static" folder of this app.</p>
+      <br>
+      <p>Everything below the line is rendered with React.</p>
+      <hr>
+      <div id="react-root">
+        <h2>Something went wrong.</h2>
+        <p>If you see this, then React did not load properly.</p>
+      </div>
+    </main>
+
+    <script src="{% static 'example_app_7/js/react-example.js' %}"></script>
+  </body>
+
+</html>
