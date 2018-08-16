@@ -20,16 +20,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Category = function (_React$Component) {
     _inherits(Category, _React$Component);
 
+    /**
+     * Constructor. Called on object creation.
+     */
     function Category(props) {
         _classCallCheck(this, Category);
 
         return _possibleConstructorReturn(this, (Category.__proto__ || Object.getPrototypeOf(Category)).call(this, props));
-
-        //        this.pk = this.props.pk;
-        //        this.title = this.props.title;
-        //        this.date_created = this.props.date_created;
-        //        this.date_updated = this.props.date_updated;
     }
+
+    /**
+     * The elements rendered to the page.
+     * Immediately renders category based on passed values.
+     */
+
 
     _createClass(Category, [{
         key: "render",
@@ -80,17 +84,50 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var CategoryList = function (_React$Component) {
     _inherits(CategoryList, _React$Component);
 
+    /**
+     * Constructor. Called on object creation.
+     */
     function CategoryList(props) {
         _classCallCheck(this, CategoryList);
 
-        return _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
+        // Set default state.
+        var _this = _possibleConstructorReturn(this, (CategoryList.__proto__ || Object.getPrototypeOf(CategoryList)).call(this, props));
+
+        _this.state = {
+            query: categories,
+            initial_query: categories
+        };
+        return _this;
     }
 
+    /**
+     * Input box change handler. Loops through and filters all categories.
+     */
+
+
     _createClass(CategoryList, [{
+        key: 'handleChange',
+        value: function handleChange(event) {
+            var filtered_categories = [];
+            this.state.initial_query.forEach(function (category, id) {
+                if (category.fields['title'].toLowerCase().includes(event.target.value.toLowerCase())) {
+                    filtered_categories.push(category);
+                }
+            });
+            console.log({ filtered_categories: filtered_categories });
+            this.setState({ query: filtered_categories });
+        }
+
+        /**
+         * The elements rendered to the page.
+         * First calculates what every individual category is. Then renders and returns full elements.
+         */
+
+    }, {
         key: 'render',
         value: function render() {
             var categories = [];
-            this.props.categories.forEach(function (category, id) {
+            this.state.query.forEach(function (category, id) {
                 categories.push(React.createElement(_category2.default, {
                     key: category.pk,
                     pk: category.pk,
@@ -101,9 +138,29 @@ var CategoryList = function (_React$Component) {
             });
 
             return React.createElement(
-                'ul',
+                'div',
                 null,
-                categories
+                React.createElement(
+                    'label',
+                    null,
+                    'Search Categories: '
+                ),
+                React.createElement('input', {
+                    type: 'text',
+                    value: this.state.input,
+                    placeholder: 'Search for...',
+                    onChange: this.handleChange.bind(this)
+                }),
+                React.createElement(
+                    'h2',
+                    null,
+                    'Categories'
+                ),
+                React.createElement(
+                    'ul',
+                    null,
+                    categories
+                )
             );
         }
     }]);
@@ -135,11 +192,7 @@ console.log(categories);
 
 // React function to create list of categories.
 function App() {
-    return React.createElement(
-        'div',
-        null,
-        React.createElement(_category_list2.default, { categories: categories })
-    );
+    return React.createElement(_category_list2.default, null);
 }
 
 // Render to page.

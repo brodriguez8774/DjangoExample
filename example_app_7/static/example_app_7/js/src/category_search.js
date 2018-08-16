@@ -12,9 +12,7 @@ console.log(categories);
 // React function to create list of categories.
 function App() {
     return (
-      <div>
-        <CategoryList categories={categories} />
-      </div>
+        <CategoryList />
     );
 }
 

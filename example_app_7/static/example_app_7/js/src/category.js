@@ -3,22 +3,27 @@
  */
 
 class Category extends React.Component {
+
+    /**
+     * Constructor. Called on object creation.
+     */
     constructor(props) {
         super(props);
-
-//        this.pk = this.props.pk;
-//        this.title = this.props.title;
-//        this.date_created = this.props.date_created;
-//        this.date_updated = this.props.date_updated;
     }
 
+    /**
+     * The elements rendered to the page.
+     * Immediately renders category based on passed values.
+     */
     render() {
-        return <li>
-            PK: { this.props.pk },
-            Title: { this.props.title },
-            DateCreated: { this.props.date_created },
-            DateModified: { this.props.date_modified }
-        </li>
+        return (
+            <li>
+                PK: { this.props.pk },
+                Title: { this.props.title },
+                DateCreated: { this.props.date_created },
+                DateModified: { this.props.date_modified }
+            </li>
+        )
     }
 }
 
