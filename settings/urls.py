@@ -30,4 +30,7 @@ urlpatterns = [
 
     # Example App 7 Views.
     url(r'^ex7/', include('example_app_7.urls')),
+
+    # Example App 8 Views.
+    url(r'^ex8/', include('example_app_8.urls')),
 ]
