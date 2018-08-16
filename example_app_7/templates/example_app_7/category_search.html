@@ -14,19 +14,17 @@
   <body>
     <main>
       <h1>Django Example App 7</h1>
-      <p><a href="{% url 'example_app_7:category_search' %}">Django models and React</a></p>
-      <p>This app shows rendering of a Django template with React.</p>
-      <p>The React javascript file can be found within the "static" folder of this app.</p>
-      <br>
-      <p>Everything below the line is rendered with React.</p>
-      <hr>
+      <p><a href="{% url 'example_app_7:index' %}">Index</a></p>
       <div id="react-root">
         <h2>Something went wrong.</h2>
         <p>If you see this, then React did not load properly.</p>
       </div>
     </main>
 
-    <script src="{% static 'example_app_7/js/react_example.js' %}"></script>
+    <script>
+      var categories = {{json_categories|safe}};
+    </script>
+    <script src="{% static 'example_app_7/js/category_search.js' %}"></script>
   </body>
 
 </html>

@@ -1,5 +1,5 @@
 /**
- * This is a basic react file.
+ * This is a basic react file loaded on the index page.
  * It renders react components on the page, as long as it can find an element with id of "react-root".
  * Unfortunately, you will need to compile code using browserify. See readme for details.
  */

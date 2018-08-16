@@ -1,4 +1,5 @@
 /**
+ * This is loaded from the "react_example.js" as part of the index page.
  * This file shows three separate ways of using React to render an H2 header with the words "Hello World!"
  */
 
@@ -25,7 +26,7 @@ const hello_world_header_2 = React.createElement(
 /**
  * Third way to render hello world.
  * I believe this is closer to the "standard" most people currently use.
- * Also requires browserify, but uses a class-based approach for front end elements.
+ * Must be compiled through browserify, but uses a class-based approach for front end elements.
  *
  * This method is advantageous for a few reasons. For example, the above two methods can only be exported with
  * "default". Each file can only have one default at a time. However, class based objects do not require default.
