@@ -1,0 +1,34 @@
+
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" crossorigin></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Django Example App 8</h1>
+      <p><a href="{% url 'example_app_8:category_search' %}">Django models and Vue</a></p>
+      <p>This app shows rendering of a Django template with Vue.</p>
+      <p>The Vue javascript file can be found within the "static" folder of this app.</p>
+      <br>
+      <p>Everything below the line is rendered with Vue.</p>
+      <hr>
+      <div id="vue-root">
+        <div v-if="hello_world_header"><h2>{ hello_world_header }</h2></div>
+        <div v-else>
+          <h2>Something went wrong.</h2>
+          <p>If you see this, then Vue did not load properly.</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="{% static 'example_app_8/js/vue_example.js' %}"></script>
+  </body>
+
+</html>
