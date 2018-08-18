@@ -48,6 +48,7 @@ class CategoryList extends React.Component {
                     key={ category.pk }
                     pk={ category.pk }
                     title={ category.fields['title'] }
+                    url={ category.fields['url'] }
                     date_created={ category.fields['date_created'] }
                     date_modified={ category.fields['date_modified'] }
                 />

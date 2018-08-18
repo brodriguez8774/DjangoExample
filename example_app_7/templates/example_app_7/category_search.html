@@ -15,7 +15,7 @@
     <main>
       <h1>Django Example App 7</h1>
       <p><a href="{% url 'example_app_7:index' %}">Index</a></p>
-      <p>Note, category model objects are reused from <a href="{% url 'example_app_1:index' %}">Example App 1</a>.</p>
+      <p><a href="{% url 'example_app_7:category_create' %}">New Category</a></p>
       <hr>
       <div id="react-root">
         <h2>Something went wrong.</h2>
@@ -24,7 +24,17 @@
     </main>
 
     <script>
-      var categories = {{json_categories|safe}};
+      // Get json list of django models as JavaScript variable.
+      var categories = {{ json_categories|safe }};
+
+      // Iterate through list of models and save url field for each.
+      // This is accomplished by creating a "dummy" url in django to load from. It gets the desired url, but with a
+      // placeholder string for the pk (make sure the placeholder is not a valid pk).
+      // From here, we use javascript to read the json model information, and replace the dummy url with a valid one.
+      // Finally, we add this url to the list of json model information.
+      categories.forEach((category) => {
+        category.fields['url'] = "{% url 'example_app_7:category_edit_js' %}".replace("category_pk", category.pk)
+      });
     </script>
     <script src="{% static 'example_app_7/js/category_search.js' %}"></script>
   </body>

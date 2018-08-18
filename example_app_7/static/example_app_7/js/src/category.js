@@ -18,10 +18,12 @@ class Category extends React.Component {
     render() {
         return (
             <li>
-                PK: { this.props.pk },
-                Title: { this.props.title },
-                DateCreated: { this.props.date_created },
-                DateModified: { this.props.date_modified }
+                <a href = { this.props.url }>
+                    PK: { this.props.pk },
+                    Title: { this.props.title },
+                    DateCreated: { this.props.date_created },
+                    DateModified: { this.props.date_modified }
+                </a>
             </li>
         )
     }

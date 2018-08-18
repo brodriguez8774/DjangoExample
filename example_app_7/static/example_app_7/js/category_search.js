@@ -41,14 +41,18 @@ var Category = function (_React$Component) {
             return React.createElement(
                 "li",
                 null,
-                "PK: ",
-                this.props.pk,
-                ", Title: ",
-                this.props.title,
-                ", DateCreated: ",
-                this.props.date_created,
-                ", DateModified: ",
-                this.props.date_modified
+                React.createElement(
+                    "a",
+                    { href: this.props.url },
+                    "PK: ",
+                    this.props.pk,
+                    ", Title: ",
+                    this.props.title,
+                    ", DateCreated: ",
+                    this.props.date_created,
+                    ", DateModified: ",
+                    this.props.date_modified
+                )
             );
         }
     }]);
@@ -132,6 +136,7 @@ var CategoryList = function (_React$Component) {
                     key: category.pk,
                     pk: category.pk,
                     title: category.fields['title'],
+                    url: category.fields['url'],
                     date_created: category.fields['date_created'],
                     date_modified: category.fields['date_modified']
                 }));
