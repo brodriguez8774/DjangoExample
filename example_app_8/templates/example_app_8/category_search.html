@@ -14,13 +14,17 @@
     <main>
       <h1>Django Example App 8</h1>
       <p><a href="{% url 'example_app_8:index' %}">Index</a></p>
+      <p><a href="{% url 'example_app_8:category_create' %}">New Category</a></p>
+      <hr>
       <div id="vue-root">
-        <div v-if="category_list">
+        <div v-if="query">
+          <input v-model="search_value" type="text" placeholder="Search for...">
+          <h2>Categories</h2>
           <ul>
             <category
-              v-for="category in category_list"
+              v-for="category in query"
               v-bind:category="category"
-              vbind:key="category.pk"
+              v-bind:key="category.pk"
             >
             </category>
           </ul>
@@ -33,8 +37,17 @@
     </main>
 
     <script>
-      var categories = {{json_categories|safe}};
-      console.log(categories);
+      // Get json list of django models as JavaScript variable.
+      var categories = {{ json_categories|safe }};
+
+      // Iterate through list of models and save url field for each.
+      // This is accomplished by creating a "dummy" url in django to load from. It gets the desired url, but with a
+      // placeholder string for the pk (make sure the placeholder is not a valid pk).
+      // From here, we use javascript to read the json model information, and replace the dummy url with a valid one.
+      // Finally, we add this url to the list of json model information.
+      categories.forEach((category) => {
+        category.fields['url'] = "{% url 'example_app_8:category_edit_js' %}".replace("category_pk", category.pk)
+      });
     </script>
     <script src="{% static 'example_app_8/js/category_search.js' %}"></script>
   </body>

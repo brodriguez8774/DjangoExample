@@ -1,0 +1,26 @@
+
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>Category Form</h1>
+
+      <form method="POST" action="">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+      </form>
+    </main>
+  </body>
+
+</html>
