@@ -42,7 +42,7 @@ class CategoryList extends React.Component {
      */
     render() {
         const categories = [];
-        this.state.query.forEach((category, id) => {
+        this.state.query.forEach((category) => {
             categories.push(
                 <Category
                     key={ category.pk }

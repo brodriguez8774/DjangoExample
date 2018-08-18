@@ -131,7 +131,7 @@ var CategoryList = function (_React$Component) {
         key: 'render',
         value: function render() {
             var categories = [];
-            this.state.query.forEach(function (category, id) {
+            this.state.query.forEach(function (category) {
                 categories.push(React.createElement(_category2.default, {
                     key: category.pk,
                     pk: category.pk,
