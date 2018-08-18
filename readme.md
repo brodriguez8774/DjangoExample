@@ -14,6 +14,8 @@ views as well. App 6 does not have models and thus has no associated admin views
 * /ex4/ - Standard urls for Example App 4.
 * /ex5/ - Standard urls for Example App 5.
 * /ex6/ - Standard urls for Example App 6.
+* /ex7/ - Standard urls for Example App 7.
+* /ex8/ - Standard urls for Example App 8.
 
 
 ## App Descriptions:
@@ -52,7 +54,12 @@ views as well. App 6 does not have models and thus has no associated admin views
 
 * Example App 7:
     * An example of adding React (a JavaScript extension) on top of Django templating. See below for more info on React.
-    
+
+
+* Example App 8:
+    * A copy of App 7, except using Vue.js instead of React.js.
+    * Created mostly for ease of mind to compare the two and be confident that we're choosing the correct one.
+
     
 ## React Notes
 
@@ -86,3 +93,12 @@ From the project's root directory, run:
 * ```browserify -t [ babelify --presets [env react] ] <sourceFile> -o <destinationFile>```
     * Where \<sourceFile> is the original react file.
     * And \<destinationFile> is where the browser-friendly file is compiled to.
+
+
+## Vue Notes
+
+Vue is an alternative to react. As long as you keep Vue code within a single JavaScript file, then it doesn't need any
+compiling, unlike react.
+
+However, the downside is that portions of logic are intertwined within the template syntax. IE, it seems much harder to
+understand the general logic at a glance because it's more spread out.
