@@ -10,7 +10,7 @@
 
   {% for topping in topping_list %}
     <li>
-      <a href="{% url 'example_app_5:topping_detail' topping_id=topping.id %}">{{ topping.name }}</a>
+      <a href="{% url 'example_app_5:topping_detail' topping_id=topping.pk %}">{{ topping.name }}</a>
     </li>
   {% endfor %}
 {% endblock content %}

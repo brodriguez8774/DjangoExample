@@ -13,5 +13,5 @@
   <p>Created At: {{ customer.date_created }}</p>
   <p>Last Updated: {{ customer.date_modified }}</p>
 
-  <p><a href="{% url 'example_app_3:customer_edit' customer_id=customer.id %}">Edit</a></p>
+  <p><a href="{% url 'example_app_3:customer_edit' customer_id=customer.pk %}">Edit</a></p>
 {% endblock content %}

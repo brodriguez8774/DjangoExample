@@ -49,7 +49,7 @@ def category_create(request):
             category = form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_1:category_detail', args=(category.id, )))
+            return HttpResponseRedirect(reverse('example_app_1:category_detail', args=(category.pk, )))
 
     # Handle for non-post request.
     return render(request, 'example_app_1/forms/category.html', {
@@ -72,7 +72,7 @@ def category_edit(request, category_id):
             form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_1:category_detail', args=(category.id, )))
+            return HttpResponseRedirect(reverse('example_app_1:category_detail', args=(category.pk, )))
 
     # Send to template for user display.
     return render(request, 'example_app_1/forms/category.html', {

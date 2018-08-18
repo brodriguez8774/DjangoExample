@@ -80,7 +80,7 @@ class AddressViewTests(TestCase):
 
     def test_address_detail(self):
         response = self.client.get(reverse('example_app_3:address_detail', kwargs={
-            'address_id': self.address.id
+            'address_id': self.address.pk
         }))
         self.assertEqual(response.status_code, 200)
 
@@ -91,7 +91,7 @@ class AddressViewTests(TestCase):
 
     def test_address_edit(self):
         response = self.client.get(reverse('example_app_3:address_edit', kwargs={
-            'address_id': self.address.id
+            'address_id': self.address.pk
         }))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('form' in response.context)
@@ -111,7 +111,7 @@ class CustomerViewTests(TestCase):
 
     def test_customer_detail(self):
         response = self.client.get(reverse('example_app_3:customer_detail', kwargs={
-            'customer_id': self.customer.id
+            'customer_id': self.customer.pk
         }))
         self.assertEqual(response.status_code, 200)
 
@@ -122,7 +122,7 @@ class CustomerViewTests(TestCase):
 
     def test_customer_edit(self):
         response = self.client.get(reverse('example_app_3:customer_edit', kwargs={
-            'customer_id': self.customer.id
+            'customer_id': self.customer.pk
         }))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('form' in response.context)

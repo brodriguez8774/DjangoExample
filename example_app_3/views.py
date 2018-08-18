@@ -92,7 +92,7 @@ def address_create(request):
             address = form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_3:address_detail', args=(address.id, )))
+            return HttpResponseRedirect(reverse('example_app_3:address_detail', args=(address.pk, )))
 
     # Handle for non-post request.
     return render(request, 'example_app_3/forms/address.html', {
@@ -113,7 +113,7 @@ def customer_create(request):
             customer = form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_3:customer_detail', args=(customer.id, )))
+            return HttpResponseRedirect(reverse('example_app_3:customer_detail', args=(customer.pk, )))
 
     # Handle for non-post request.
     return render(request, 'example_app_3/forms/customer.html', {
@@ -140,7 +140,7 @@ def address_edit(request, address_id):
             form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_3:address_detail', args=(address.id, )))
+            return HttpResponseRedirect(reverse('example_app_3:address_detail', args=(address.pk, )))
 
     # Send to template for user display.
     return render(request, 'example_app_3/forms/address.html', {
@@ -164,7 +164,7 @@ def customer_edit(request, customer_id):
             form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_3:customer_detail', args=(customer.id, )))
+            return HttpResponseRedirect(reverse('example_app_3:customer_detail', args=(customer.pk, )))
 
     # Send to template for user display.
     return render(request, 'example_app_3/forms/customer.html', {

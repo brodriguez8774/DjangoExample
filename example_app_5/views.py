@@ -89,7 +89,7 @@ def topping_create(request):
             topping = form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_5:topping_detail', args=(topping.id, )))
+            return HttpResponseRedirect(reverse('example_app_5:topping_detail', args=(topping.pk, )))
 
     # Handle for non-post request.
     return render(request, 'example_app_5/forms/topping.html', {
@@ -122,7 +122,7 @@ def pizza_create(request):
                 )
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.id, )))
+            return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.pk, )))
 
     # Handle for non-post request.
     return render(request, 'example_app_5/forms/pizza.html', {
@@ -149,7 +149,7 @@ def topping_edit(request, topping_id):
             form.save()
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_5:topping_detail', args=(topping.id, )))
+            return HttpResponseRedirect(reverse('example_app_5:topping_detail', args=(topping.pk, )))
 
     # Send to template for user display.
     return render(request, 'example_app_5/forms/topping.html', {
@@ -189,7 +189,7 @@ def pizza_edit(request, pizza_id):
 
 
             # Render response for user.
-            return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.id, )))
+            return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.pk, )))
 
     # Send to template for user display.
     return render(request, 'example_app_5/forms/pizza.html', {

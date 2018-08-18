@@ -99,7 +99,7 @@ class ToppingViewTests(TestCase):
 
     def test_detail(self):
         response = self.client.get(reverse('example_app_4:topping_detail', kwargs={
-            'topping_id': self.topping.id,
+            'topping_id': self.topping.pk,
         }))
         self.assertEqual(response.status_code, 200)
 
@@ -110,7 +110,7 @@ class ToppingViewTests(TestCase):
 
     def test_edit(self):
         response = self.client.get(reverse('example_app_4:topping_edit', kwargs={
-            'topping_id': self.topping.id,
+            'topping_id': self.topping.pk,
         }))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('form' in response.context)
@@ -134,7 +134,7 @@ class PizzaViewTests(TestCase):
 
     def test_detail(self):
         response = self.client.get(reverse('example_app_4:pizza_detail', kwargs={
-            'pizza_id': self.pizza.id,
+            'pizza_id': self.pizza.pk,
         }))
         self.assertEqual(response.status_code, 200)
 
@@ -145,7 +145,7 @@ class PizzaViewTests(TestCase):
 
     def test_edit(self):
         response = self.client.get(reverse('example_app_4:pizza_edit', kwargs={
-            'pizza_id': self.pizza.id,
+            'pizza_id': self.pizza.pk,
         }))
         self.assertEqual(response.status_code, 200)
         self.assertTrue('form' in response.context)

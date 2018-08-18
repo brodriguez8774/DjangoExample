@@ -8,5 +8,5 @@
   <p>Created At: {{ category.date_created }}</p>
   <p>Last Updated: {{ category.date_created }}</p>
 
-  <p><a href="{% url 'example_app_2:category_edit' pk=category.id %}">Edit</a></p>
+  <p><a href="{% url 'example_app_2:category_edit' pk=category.pk %}">Edit</a></p>
 {% endblock content %}
