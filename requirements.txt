@@ -1,0 +1,6 @@
+
+# Run via "pip install -r requirements.txt" while in the base project directory.
+
+
+# Python Libraries.
+django==1.11        # Core Django framework.
