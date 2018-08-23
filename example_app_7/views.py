@@ -64,7 +64,7 @@ def category_edit(request, pk):
     """
     Form view for editing a Category.
     """
-    category = get_object_or_404(models.Category, id=pk)
+    category = get_object_or_404(models.Category, pk=pk)
     form = forms.CategoryForm(instance=category)
 
     # Check if request is post.

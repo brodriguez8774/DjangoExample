@@ -9,7 +9,7 @@
 
   {% for customer in customer_list %}
     <li>
-      <a href="{% url 'example_app_3:customer_detail' customer_id=customer.pk %}">{{ customer.first_name }} {{customer.last_name }}</a>
+      <a href="{% url 'example_app_3:customer_detail' pk=customer.pk %}">{{ customer.first_name }} {{customer.last_name }}</a>
     </li>
   {% endfor %}
 {% endblock content %}

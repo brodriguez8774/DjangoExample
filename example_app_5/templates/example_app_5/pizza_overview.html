@@ -10,7 +10,7 @@
 
   {% for pizza in pizza_list %}
     <li>
-      <a href="{% url 'example_app_5:pizza_detail' pizza_id=pizza.pk %}">{{ pizza.name }}</a>
+      <a href="{% url 'example_app_5:pizza_detail' pk=pizza.pk %}">{{ pizza.name }}</a>
     </li>
   {% endfor %}
 {% endblock content %}

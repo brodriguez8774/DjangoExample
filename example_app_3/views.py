@@ -49,12 +49,12 @@ def customer_overview(request):
 
 #region Detail Views
 
-def address_detail(request, address_id):
+def address_detail(request, pk):
     """
     Displays details of the given address.
     """
     # Pull models from database.
-    address = get_object_or_404(models.Address, id=address_id)
+    address = get_object_or_404(models.Address, pk=pk)
 
     # Send to template for user display.
     return render(request, 'example_app_3/address_detail.html', {
@@ -62,12 +62,12 @@ def address_detail(request, address_id):
     })
 
 
-def customer_detail(request, customer_id):
+def customer_detail(request, pk):
     """
     Displays details of the given customer.
     """
     # Pull models from database.
-    customer = get_object_or_404(models.Customer, id=customer_id)
+    customer = get_object_or_404(models.Customer, pk=pk)
 
     # Send to template for user display.
     return render(request, 'example_app_3/customer_detail.html', {
@@ -125,12 +125,12 @@ def customer_create(request):
 
 #region Edit Views
 
-def address_edit(request, address_id):
+def address_edit(request, pk):
     """
     Form view for editing a Address.
     """
     # Pull models from database.
-    address = get_object_or_404(models.Address, id=address_id)
+    address = get_object_or_404(models.Address, pk=pk)
     form = forms.AddressForm(instance=address)
 
     # Check if request is post.
@@ -149,12 +149,12 @@ def address_edit(request, address_id):
     })
 
 
-def customer_edit(request, customer_id):
+def customer_edit(request, pk):
     """
     Form view for editing a Customer.
     """
     # Pull models from database.
-    customer = get_object_or_404(models.Customer, id=customer_id)
+    customer = get_object_or_404(models.Customer, pk=pk)
     form = forms.CustomerForm(instance=customer)
 
     # Check if request is post.

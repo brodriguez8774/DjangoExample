@@ -9,7 +9,7 @@
 
   {% for address in address_list %}
     <li>
-      <a href="{% url 'example_app_3:address_detail' address_id=address.pk %}">{{ address.address }}</a>
+      <a href="{% url 'example_app_3:address_detail' pk=address.pk %}">{{ address.address }}</a>
     </li>
   {% endfor %}
 {% endblock content %}

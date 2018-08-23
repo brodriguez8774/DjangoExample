@@ -22,12 +22,12 @@ def index(request):
     })
 
 
-def category_detail(request, category_id):
+def category_detail(request, pk):
     """
     Displays details of the given category.
     """
     # Pull models from database.
-    category = get_object_or_404(models.Category, id=category_id)
+    category = get_object_or_404(models.Category, pk=pk)
 
     # Send to template for user display.
     return render(request, 'example_app_1/category_detail.html', {
@@ -57,12 +57,12 @@ def category_create(request):
     })
 
 
-def category_edit(request, category_id):
+def category_edit(request, pk):
     """
     Form view for editing a Category.
     """
     # Pull models from database.
-    category = get_object_or_404(models.Category, id=category_id)
+    category = get_object_or_404(models.Category, pk=pk)
     form = forms.CategoryForm(instance=category)
 
     # Check if request is post.

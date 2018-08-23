@@ -17,5 +17,5 @@
   <p>Created At: {{ pizza.date_created }}</p>
   <p>Last Updated: {{ pizza.date_modified }}</p>
 
-  <p><a href="{% url 'example_app_4:pizza_edit' pizza_id=pizza.pk %}">Edit</a></p>
+  <p><a href="{% url 'example_app_4:pizza_edit' pk=pizza.pk %}">Edit</a></p>
 {% endblock content %}

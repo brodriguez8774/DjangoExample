@@ -16,14 +16,14 @@ urlpatterns = [
     url(r'^customer/$', views.customer_overview, name='customer_overview'),
 
     # Detail Views.
-    url(r'^address/detail/(?P<address_id>[0-9]+)/$', views.address_detail, name='address_detail'),
-    url(r'^customer/detail/(?P<customer_id>[0-9]+)/$', views.customer_detail, name='customer_detail'),
+    url(r'^address/detail/(?P<pk>[0-9]+)/$', views.address_detail, name='address_detail'),
+    url(r'^customer/detail/(?P<pk>[0-9]+)/$', views.customer_detail, name='customer_detail'),
 
     # Create Views.
     url(r'^address/create/$', views.address_create, name='address_create'),
     url(r'^customer/create/$', views.customer_create, name='customer_create'),
 
     # Edit Views.
-    url(r'^address/edit/(?P<address_id>[0-9]+)/$', views.address_edit, name='address_edit'),
-    url(r'^customer/edit/(?P<customer_id>[0-9]+)/$', views.customer_edit, name='customer_edit'),
+    url(r'^address/edit/(?P<pk>[0-9]+)/$', views.address_edit, name='address_edit'),
+    url(r'^customer/edit/(?P<pk>[0-9]+)/$', views.customer_edit, name='customer_edit'),
 ]

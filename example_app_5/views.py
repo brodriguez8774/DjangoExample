@@ -49,12 +49,12 @@ def pizza_overview(request):
 
 #region Detail Views
 
-def topping_detail(request, topping_id):
+def topping_detail(request, pk):
     """
     Displays details of the given Topping.
     """
     # Pull models from database.
-    topping = get_object_or_404(models.Topping, id=topping_id)
+    topping = get_object_or_404(models.Topping, pk=pk)
 
     # Send to template for user display.
     return render(request, 'example_app_5/topping_detail.html', {
@@ -62,8 +62,8 @@ def topping_detail(request, topping_id):
     })
 
 
-def pizza_detail(request, pizza_id):
-    pizza = get_object_or_404(models.Pizza, id=pizza_id)
+def pizza_detail(request, pk):
+    pizza = get_object_or_404(models.Pizza, pk=pk)
     topping_set = pizza.toppings.all()
 
     return render(request, 'example_app_5/pizza_detail.html', {
@@ -114,8 +114,8 @@ def pizza_create(request):
             pizza = form.save(commit=False)
             pizza.save()
 
-            for topping_id in request.POST.getlist('toppings'):
-                topping = get_object_or_404(models.Topping, id=topping_id)
+            for pk in request.POST.getlist('toppings'):
+                topping = get_object_or_404(models.Topping, pk=pk)
                 models.PizzaToppingRelationship.objects.create(
                     pizza=pizza,
                     topping=topping,
@@ -134,12 +134,12 @@ def pizza_create(request):
 
 #region Edit Views
 
-def topping_edit(request, topping_id):
+def topping_edit(request, pk):
     """
     Form view for editing a Topping.
     """
     # Pull models from database.
-    topping = get_object_or_404(models.Topping, id=topping_id)
+    topping = get_object_or_404(models.Topping, pk=pk)
     form = forms.ToppingForm(instance=topping)
 
     # Check if request is post.
@@ -158,13 +158,13 @@ def topping_edit(request, topping_id):
     })
 
 
-def pizza_edit(request, pizza_id):
+def pizza_edit(request, pk):
     """
     Form view for editing a Pizza.
     TODO: ManyToMany intermediary saving seems a bit messy. Probably a better way.
     """
     # Pull models from database.
-    pizza = get_object_or_404(models.Pizza, id=pizza_id)
+    pizza = get_object_or_404(models.Pizza, pk=pk)
     form = forms.PizzaForm(instance=pizza)
 
     # Check if request is post.
@@ -180,13 +180,12 @@ def pizza_edit(request, pizza_id):
             # Clear old topping values.
             new_pizza.toppings.clear()
 
-            for topping_id in request.POST.getlist('toppings'):
-                topping = get_object_or_404(models.Topping, id=topping_id)
+            for pk in request.POST.getlist('toppings'):
+                topping = get_object_or_404(models.Topping, pk=pk)
                 models.PizzaToppingRelationship.objects.create(
                     pizza=pizza,
                     topping=topping,
                 )
-
 
             # Render response for user.
             return HttpResponseRedirect(reverse('example_app_5:pizza_detail', args=(pizza.pk, )))
